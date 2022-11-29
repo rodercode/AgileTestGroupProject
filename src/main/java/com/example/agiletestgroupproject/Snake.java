@@ -1,5 +1,6 @@
 package com.example.agiletestgroupproject;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -21,6 +22,12 @@ public class Snake extends Application {
         stage.setTitle("Snake!");
         stage.setScene(scene);
         stage.show();
+
+        new AnimationTimer() {
+            @Override public void handle(long currentNanoTime) {
+
+            }
+        }.start();
     }
 
     public static void main(String[] args) {
