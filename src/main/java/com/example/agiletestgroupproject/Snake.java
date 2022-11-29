@@ -20,6 +20,9 @@ public class Snake extends Application {
 
         // Scene at 1280x720 pixels
         Scene scene = new Scene(groupOfNodes, 1280, 720);
+        // Make the screen record key press
+        scene = sceneSetKeyPress(scene);
+
         scene.setFill(Color.BLACK);
         stage.setTitle("Snake!");
         stage.setScene(scene);
@@ -37,14 +40,19 @@ public class Snake extends Application {
     }
 
     public static Scene sceneSetKeyPress(Scene scene){
+        //Records the key press
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if(key.getCode()== KeyCode.LEFT) {
+                System.out.println("Left arrow key pressed");
             }
             else if (key.getCode() == KeyCode.RIGHT) {
+                System.out.println("Right arrow key pressed");
             }
             else if (key.getCode() == KeyCode.UP) {
+                System.out.println("Up arrow key pressed");
             }
             else if (key.getCode() == KeyCode.DOWN) {
+                System.out.println("Down arrow key pressed");
             }
         });
 
