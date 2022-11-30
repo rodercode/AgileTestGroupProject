@@ -5,16 +5,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class SnakeHead {
-    private final double  posX = 1280/2;
-    private final double posY = 720/2;
+    private double  posX;
+    private double posY;
     private final double snakeSize = 40;
     private Rectangle rectangle;
 
 
-    public SnakeHead() {
+    public SnakeHead(double posX, double posY) {
         rectangle = new Rectangle(posX,posY,snakeSize,snakeSize);
         rectangle.setFill(Color.GREEN);
-
     }
 
 
