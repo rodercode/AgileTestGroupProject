@@ -84,6 +84,20 @@ public class SnakeHead {
             posY += speed;
 
         }
+
+        if (posX >= 1280)
+        {
+            posX = 0;
+        }
+        else if (posX < 0 )
+        {
+            posX = 1280 - snakeSize;
+        } else if (posY >= 720) {
+            posY = 0;
+        } else if (posY < 0) {
+            posY = 720 - snakeSize;
+
+        }
         rectangle.setX(posX);
         rectangle.setY(posY);
     }
