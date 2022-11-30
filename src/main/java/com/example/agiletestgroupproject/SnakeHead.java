@@ -10,9 +10,13 @@ public class SnakeHead {
     private final double snakeSize = 40;
     private Rectangle rectangle;
 
+    private int direction;
+
 
     public SnakeHead(double posX, double posY) {
-        rectangle = new Rectangle(posX,posY,snakeSize,snakeSize);
+        this.posX = posX;
+        this.posY = posY;
+        rectangle = new Rectangle(this.posX,this.posY,snakeSize,snakeSize);
         rectangle.setFill(Color.GREEN);
     }
 
@@ -33,5 +37,14 @@ public class SnakeHead {
         return rectangle;
     }
 
+    public void moveSnake(int direction){
+        if(this.direction == direction)
+        {
 
+        }
+    }
+
+    private void moveSnakeInDirection(){
+
+    }
 }
