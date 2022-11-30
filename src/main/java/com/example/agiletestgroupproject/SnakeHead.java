@@ -38,10 +38,24 @@ public class SnakeHead {
     }
 
     public void setSnakeMovement(int direction){
-        if(this.direction == direction)
+        if(direction == 0 && this.direction != 1)
         {
-
+            this.direction = 0;
         }
+        else if(direction == 1 && this.direction != 0)
+        {
+            this.direction = 1;
+        }
+        else if(direction == 2 && this.direction != 3)
+        {
+            this.direction = 2;
+        }
+        else if(direction == 3 && this.direction != 2){
+
+            this.direction = 3;
+        }
+
+        moveSnakeInDirection();
     }
 
     private void moveSnakeInDirection(){
