@@ -10,6 +10,8 @@ public class SnakeHead {
     private final double snakeSize = 40;
     private Rectangle rectangle;
 
+    private final int speed = 40;
+
     private int direction;
 
 
@@ -61,16 +63,16 @@ public class SnakeHead {
     private void moveSnakeInDirection(){
         if (direction == 0)
         {
-            posX -= 2;
+            posX -= speed;
         }
         else if (direction == 1) {
-            posX += 2;
+            posX += speed;
         }
         else if (direction == 2) {
-            posY -= 2;
+            posY -= speed;
         }
         else if (direction == 3) {
-            posY += 2;
+            posY += speed;
 
         }
 
