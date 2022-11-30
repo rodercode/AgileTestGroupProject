@@ -18,7 +18,7 @@ public class Snake extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //Objects
-        SnakeHead snakeHead = new SnakeHead();
+        SnakeHead snakeHead = new SnakeHead(1280/2,720/2);
         
         // Add all the objects to draw to this group
         Group groupOfNodes = new Group();
