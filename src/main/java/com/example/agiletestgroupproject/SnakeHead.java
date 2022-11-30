@@ -13,6 +13,7 @@ public class SnakeHead {
     private final double snakeSize = 40;
     private Rectangle rectangle;
 
+    // list of snack parts
     private List<SnakeBody> snake;
 
     private final int speed = 40;
@@ -42,6 +43,7 @@ public class SnakeHead {
     public Rectangle getRectangle() {
         return rectangle;
     }
+    // add snake bodies to snake list
     public void addSnake(SnakeBody snakeBody){
         snake.add(snakeBody);
     }
