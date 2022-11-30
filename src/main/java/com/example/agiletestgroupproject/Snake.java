@@ -1,6 +1,9 @@
 package com.example.agiletestgroupproject;
 
+import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -11,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -38,14 +42,13 @@ public class Snake extends Application {
         stage.setScene(scene);
         stage.show();
 
-
-        new AnimationTimer() {
-            @Override
-            public void handle(long currentNanoTime) {
-                snakeHead.setSnakeMovement(direction);
-
-            }
-        }.start();
+        // Timeline is the runs every 0.2 seconds
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), ev -> {
+            snakeHead.setSnakeMovement(direction);
+        }));
+        // Runs the timeline forever
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
     public static void main(String[] args) {
