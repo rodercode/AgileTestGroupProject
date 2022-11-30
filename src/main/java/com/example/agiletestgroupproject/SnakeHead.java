@@ -32,4 +32,6 @@ public class SnakeHead {
     public Rectangle getRectangle() {
         return rectangle;
     }
+
+
 }

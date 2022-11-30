@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Snake extends Application {
+
+    private static int direction = 0; // 0 = left, 1 = right, 2 = up, 3 = down
     @Override
     public void start(Stage stage) throws IOException {
         //Objects
@@ -53,13 +55,13 @@ public class Snake extends Application {
         //Records the key press
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
             if (key.getCode() == KeyCode.LEFT) {
-                System.out.println("Left arrow key pressed");
+                direction = 0;
             } else if (key.getCode() == KeyCode.RIGHT) {
-                System.out.println("Right arrow key pressed");
+                direction = 1;
             } else if (key.getCode() == KeyCode.UP) {
-                System.out.println("Up arrow key pressed");
+                direction = 2;
             } else if (key.getCode() == KeyCode.DOWN) {
-                System.out.println("Down arrow key pressed");
+                direction = 3;
             }
         });
 
