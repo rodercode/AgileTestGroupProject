@@ -19,15 +19,20 @@ public class Snake extends Application {
     private static int direction = 0; // 0 = left, 1 = right, 2 = up, 3 = down
     @Override
     public void start(Stage stage) throws IOException {
+
+        // Variables
+        final int HEIGHT = 720;
+        final int WIDE = 1280;
+
         //Objects
-        SnakeHead snakeHead = new SnakeHead(1280/2,720/2);
+        SnakeHead snakeHead = new SnakeHead(WIDE/2,HEIGHT/2);
         
         // Add all the objects to draw to this group
         Group groupOfNodes = new Group();
         groupOfNodes.getChildren().add(snakeHead.getRectangle());
 
         // Scene at 1280x720 pixels
-        Scene scene = new Scene(groupOfNodes, 1280, 720);
+        Scene scene = new Scene(groupOfNodes, WIDE, HEIGHT);
 
         // Make the screen record key press
         scene = sceneSetKeyPress(scene);
@@ -65,7 +70,6 @@ public class Snake extends Application {
                 direction = 3;
             }
         });
-
         return scene;
     }
 }
