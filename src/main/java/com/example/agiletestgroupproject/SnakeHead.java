@@ -37,7 +37,7 @@ public class SnakeHead {
         return rectangle;
     }
 
-    public void moveSnake(int direction){
+    public void setSnakeMovement(int direction){
         if(this.direction == direction)
         {
 
@@ -45,6 +45,9 @@ public class SnakeHead {
     }
 
     private void moveSnakeInDirection(){
+        if (direction == 0)
+        {
 
+        }
     }
 }
