@@ -42,6 +42,7 @@ public class Snake extends Application {
         new AnimationTimer() {
             @Override
             public void handle(long currentNanoTime) {
+                snakeHead.setSnakeMovement(direction);
 
             }
         }.start();

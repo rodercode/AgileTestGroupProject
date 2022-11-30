@@ -61,17 +61,20 @@ public class SnakeHead {
     private void moveSnakeInDirection(){
         if (direction == 0)
         {
-            posX -= 40;
+            posX -= 2;
         }
         else if (direction == 1) {
-            posX += 40;
+            posX += 2;
         }
         else if (direction == 2) {
-            posY -= 40;
+            posY -= 2;
         }
         else if (direction == 3) {
-            posY += 40;
+            posY += 2;
 
         }
+
+        rectangle.setX(posX);
+        rectangle.setY(posY);
     }
 }
