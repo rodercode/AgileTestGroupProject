@@ -4,24 +4,28 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SnakeHead {
     private double  posX;
     private double posY;
     private final double snakeSize = 40;
     private Rectangle rectangle;
 
+    private List<SnakeBody> snake;
+
     private final int speed = 40;
 
     private int direction;
-
 
     public SnakeHead(double posX, double posY) {
         this.posX = posX;
         this.posY = posY;
         rectangle = new Rectangle(this.posX,this.posY,snakeSize,snakeSize);
         rectangle.setFill(Color.GREEN);
+        snake = new ArrayList<>();
     }
-
 
     public double getPosX() {
         return posX;
@@ -37,6 +41,9 @@ public class SnakeHead {
 
     public Rectangle getRectangle() {
         return rectangle;
+    }
+    public void addSnake(SnakeBody snakeBody){
+        snake.add(snakeBody);
     }
 
     public void setSnakeMovement(int direction){
@@ -75,7 +82,6 @@ public class SnakeHead {
             posY += speed;
 
         }
-
         rectangle.setX(posX);
         rectangle.setY(posY);
     }

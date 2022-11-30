@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -17,10 +19,14 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Snake extends Application {
 
     private static int direction = 0; // 0 = left, 1 = right, 2 = up, 3 = down
+
+    static List<Rectangle> snake = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -30,10 +36,14 @@ public class Snake extends Application {
 
         //Objects
         SnakeHead snakeHead = new SnakeHead(HEIGHT/2,WIDE/2);
-        
-        // Add all the objects to draw to this group
+        SnakeHead snakeHead1 = new SnakeHead(HEIGHT/2,WIDE/2);
+
+        // add start snake parts
+        snake.add(snakeHead.getRectangle());
+
+        // add all the objects to draw to this group
         Group groupOfNodes = new Group();
-        groupOfNodes.getChildren().add(snakeHead.getRectangle());
+        groupOfNodes.getChildren().addAll(snake);
 
         // Scene at 1280x720 pixels
         Scene scene = new Scene(groupOfNodes, HEIGHT, WIDE);
@@ -59,7 +69,6 @@ public class Snake extends Application {
     public static void main(String[] args) {
         launch();
     }
-
     public static Scene sceneSetKeyPress(Scene scene) {
         //Records the key press
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
