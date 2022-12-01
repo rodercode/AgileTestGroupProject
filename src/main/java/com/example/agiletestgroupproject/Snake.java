@@ -30,7 +30,6 @@ public class Snake extends Application {
 
         //Objects
         SnakeHead snakeHead = new SnakeHead(HEIGHT/2,WIDE/2);
-        SnakeHead snakeHead1 = new SnakeHead(HEIGHT/2,WIDE/2);
 
 
         // add all the objects to draw to this group
