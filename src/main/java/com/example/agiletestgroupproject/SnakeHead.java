@@ -136,7 +136,9 @@ public class SnakeHead {
         }
     }
 
-    public List<SnakeBody> getSnake() {
-        return snake;
+    public Rectangle getLatestSnakeBody() {
+        // Get rectangle of last snakeBody in snake
+        Rectangle rectangle = snake.get(snake.size() - 1).getRectangle();
+        return rectangle;
     }
 }

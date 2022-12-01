@@ -36,6 +36,7 @@ public class Snake extends Application {
         // add all the objects to draw to this group
         Group groupOfNodes = new Group();
         groupOfNodes.getChildren().add(snakeHead.getRectangle());
+        groupOfNodes.getChildren().add(snakeHead.getSnake());
 
         // Scene at 1280x720 pixels
         Scene scene = new Scene(groupOfNodes, HEIGHT, WIDE);
