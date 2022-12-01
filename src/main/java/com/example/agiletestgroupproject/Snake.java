@@ -21,7 +21,6 @@ public class Snake extends Application {
 
     private static int direction = 0; // 0 = left, 1 = right, 2 = up, 3 = down
 
-    static List<Rectangle> snake = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -33,12 +32,10 @@ public class Snake extends Application {
         SnakeHead snakeHead = new SnakeHead(HEIGHT/2,WIDE/2);
         SnakeHead snakeHead1 = new SnakeHead(HEIGHT/2,WIDE/2);
 
-        // add start snake parts
-        snake.add(snakeHead.getRectangle());
 
         // add all the objects to draw to this group
         Group groupOfNodes = new Group();
-        groupOfNodes.getChildren().addAll(snake);
+        groupOfNodes.getChildren().add(snakeHead.getRectangle());
 
         // Scene at 1280x720 pixels
         Scene scene = new Scene(groupOfNodes, HEIGHT, WIDE);
