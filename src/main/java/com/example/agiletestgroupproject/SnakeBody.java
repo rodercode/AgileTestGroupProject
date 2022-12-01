@@ -14,7 +14,7 @@ public class SnakeBody {
     private Rectangle rectangle;
 
 
-    public SnakeBody() {
+    public SnakeBody(double posX,double posY) {
         this.posX = posX;
         this.posY = posY;
         rectangle = new Rectangle(this.posX,this.posY,snakeSize,snakeSize);
