@@ -18,7 +18,7 @@ public class SnakeHead {
 
     private final int speed = 40;
 
-    private int direction;
+    private int direction; // 0 = left, 1 = right, 2 = up, 3 = down
 
     public SnakeHead(double posX, double posY) {
         this.posX = posX;
@@ -29,7 +29,18 @@ public class SnakeHead {
     }
 
     public void growMe(){
-        snake.add(new SnakeBody());
+        // If snake is empty just add a new snakeBody with the heads position
+        if (snake.isEmpty())
+        {
+            snake.add(new SnakeBody(posX, posY));
+        }
+        // Else add a new SnakeBody with the last bodies position
+        else
+        {
+            int lastIndex = snake.size() - 1;
+            snake.add(new SnakeBody(snake.get(lastIndex).getPosX(), snake.get(lastIndex).getPosY()));
+        }
+
     }
 
     public double getPosX() {
@@ -47,12 +58,9 @@ public class SnakeHead {
     public Rectangle getRectangle() {
         return rectangle;
     }
-    // add snake bodies to snake list
-    public void addSnake(SnakeBody snakeBody){
-        snake.add(snakeBody);
-    }
 
-    public void setSnakeMovement(int direction){
+    public void setSnakeMovement(int direction, int height, int wide){
+        // 0 = left, 1 = right, 2 = up, 3 = down
         if(direction == 0 && this.direction != 1)
         {
             this.direction = 0;
@@ -70,10 +78,13 @@ public class SnakeHead {
             this.direction = 3;
         }
 
-        moveSnakeInDirection();
+        moveSnakeInDirection(height, wide);
     }
 
-    private void moveSnakeInDirection(){
+    private void moveSnakeInDirection(int height, int wide){
+        moveSnakeBody();
+
+        // 0 = left, 1 = right, 2 = up, 3 = down
         if (direction == 0)
         {
             posX -= speed;
@@ -89,20 +100,45 @@ public class SnakeHead {
 
         }
 
-        if (posX >= 1280)
+        if (posX >= wide)
         {
             posX = 0;
         }
         else if (posX < 0 )
         {
-            posX = 1280 - snakeSize;
-        } else if (posY >= 720) {
+            posX = wide - snakeSize;
+        } else if (posY >= height) {
             posY = 0;
         } else if (posY < 0) {
-            posY = 720 - snakeSize;
+            posY = height - snakeSize;
 
         }
         rectangle.setX(posX);
         rectangle.setY(posY);
+    }
+
+    private void moveSnakeBody()
+    {
+        if (snake.isEmpty())
+        {
+
+        }
+        else
+        {
+            // Loops through all snakeBody except index 0 and sets position to the previous one
+            for (int index = snake.size() - 1; index > 0; index--)
+            {
+                snake.get(index).setPosX(snake.get(index-1).getPosX());
+                snake.get(index).setPosY(snake.get(index-1).getPosY());
+            }
+            snake.get(0).setPosX(posX);
+            snake.get(0).setPosY(posY);
+        }
+    }
+
+    public Rectangle getLatestSnakeBody() {
+        // Get rectangle of last snakeBody in snake
+        Rectangle rectangle = snake.get(snake.size() - 1).getRectangle();
+        return rectangle;
     }
 }

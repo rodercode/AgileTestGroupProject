@@ -27,6 +27,7 @@ public class SnakeBody {
 
     public void setPosX(double posX) {
         this.posX = posX;
+        rectangle.setX(this.posX);
     }
 
     public double getPosY() {
@@ -35,6 +36,7 @@ public class SnakeBody {
 
     public void setPosY(double posY) {
         this.posY = posY;
+        rectangle.setY(this.posY);
     }
 
     public Rectangle getRectangle() {
