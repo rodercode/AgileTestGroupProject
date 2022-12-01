@@ -56,10 +56,6 @@ public class SnakeHead {
     public Rectangle getRectangle() {
         return rectangle;
     }
-    // add snake bodies to snake list
-    public void addSnake(SnakeBody snakeBody){
-        snake.add(snakeBody);
-    }
 
     public void setSnakeMovement(int direction){
         if(direction == 0 && this.direction != 1)

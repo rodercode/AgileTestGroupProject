@@ -36,7 +36,6 @@ public class Snake extends Application {
         // add all the objects to draw to this group
         Group groupOfNodes = new Group();
         groupOfNodes.getChildren().add(snakeHead.getRectangle());
-        groupOfNodes.getChildren().add(snakeHead.getSnake());
 
         // Scene at 1280x720 pixels
         Scene scene = new Scene(groupOfNodes, HEIGHT, WIDE);
@@ -53,6 +52,12 @@ public class Snake extends Application {
         // Timeline is the runs every 0.2 seconds
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), ev -> {
             snakeHead.setSnakeMovement(direction);
+            int test = 0;
+            if (test == 5)
+            {
+                test = 0;
+                snakeHead.addSnake();
+            }
         }));
         // Runs the timeline forever
         timeline.setCycleCount(Animation.INDEFINITE);
