@@ -83,6 +83,8 @@ public class SnakeHead {
     }
 
     private void moveSnakeInDirection(){
+        moveSnakeBody();
+
         if (direction == 0)
         {
             posX -= speed;
@@ -123,7 +125,7 @@ public class SnakeHead {
         }
         else
         {
-            // Loops through all snakebody except index 0 and sets position to the previous one
+            // Loops through all snakeBody except index 0 and sets position to the previous one
             for (int index = snake.size() - 1; index > 0; index--)
             {
                 snake.get(index).setPosX(snake.get(index-1).getPosX());
