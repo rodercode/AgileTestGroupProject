@@ -29,7 +29,16 @@ public class SnakeHead {
     }
 
     public void growMe(){
-        snake.add(new SnakeBody());
+        if (snake.isEmpty())
+        {
+            snake.add(new SnakeBody(posX, posY));
+        }
+        else
+        {
+            int lastIndex = snake.size() - 1;
+            snake.add(new SnakeBody(snake.get(lastIndex).getPosX(), snake.get(lastIndex).getPosY()));
+        }
+
     }
 
     public double getPosX() {
