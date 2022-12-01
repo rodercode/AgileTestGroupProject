@@ -135,4 +135,8 @@ public class SnakeHead {
             snake.get(0).setPosY(posY);
         }
     }
+
+    public List<SnakeBody> getSnake() {
+        return snake;
+    }
 }
