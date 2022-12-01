@@ -28,6 +28,10 @@ public class SnakeHead {
         snake = new ArrayList<>();
     }
 
+    public void growMe(){
+        snake.add(new SnakeBody());
+    }
+
     public double getPosX() {
         return posX;
     }

@@ -7,14 +7,13 @@ import java.util.List;
 
 public class SnakeBody {
 
-    private ArrayList<Rectangle> snakeBody;
-    private SnakeHead snakePart;
+    private double  posX;
+    private double posY;
+    private final double snakeSize = 40;
+    private Rectangle rectangle;
 
-    public SnakeBody(List<SnakeHead> snakeBody) {
-        this.snakeBody = new ArrayList<>();
-    }
 
-    public void addBody(){
-        snakeBody.add(snakePart.getRectangle());
+    public SnakeBody() {
+
     }
 }
