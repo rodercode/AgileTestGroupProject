@@ -25,8 +25,8 @@ public class Snake extends Application {
     public void start(Stage stage) throws IOException {
 
         // Variable
-        final int HEIGHT = 1280;
-        final int WIDE = 720;
+        final int HEIGHT = 720;
+        final int WIDE = 1280;
 
         //Objects
         SnakeHead snakeHead = new SnakeHead(HEIGHT/2,WIDE/2);
@@ -38,7 +38,7 @@ public class Snake extends Application {
         groupOfNodes.getChildren().add(snakeHead.getRectangle());
 
         // Scene at 1280x720 pixels
-        Scene scene = new Scene(groupOfNodes, HEIGHT, WIDE);
+        Scene scene = new Scene(groupOfNodes, WIDE, HEIGHT);
 
         // Make the screen record key press
         scene = sceneSetKeyPress(scene);
@@ -52,7 +52,7 @@ public class Snake extends Application {
 
         // Timeline is the runs every 0.2 seconds
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), ev -> {
-            snakeHead.setSnakeMovement(direction);
+            snakeHead.setSnakeMovement(direction, HEIGHT, WIDE);
         }));
         // Runs the timeline forever
         timeline.setCycleCount(Animation.INDEFINITE);

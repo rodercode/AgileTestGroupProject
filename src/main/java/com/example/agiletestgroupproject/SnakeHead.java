@@ -59,7 +59,7 @@ public class SnakeHead {
         return rectangle;
     }
 
-    public void setSnakeMovement(int direction){
+    public void setSnakeMovement(int direction, int height, int wide){
         // 0 = left, 1 = right, 2 = up, 3 = down
         if(direction == 0 && this.direction != 1)
         {
@@ -78,10 +78,10 @@ public class SnakeHead {
             this.direction = 3;
         }
 
-        moveSnakeInDirection();
+        moveSnakeInDirection(height, wide);
     }
 
-    private void moveSnakeInDirection(){
+    private void moveSnakeInDirection(int height, int wide){
         moveSnakeBody();
 
         // 0 = left, 1 = right, 2 = up, 3 = down
@@ -100,17 +100,17 @@ public class SnakeHead {
 
         }
 
-        if (posX >= 1280)
+        if (posX >= wide)
         {
             posX = 0;
         }
         else if (posX < 0 )
         {
-            posX = 1280 - snakeSize;
-        } else if (posY >= 720) {
+            posX = wide - snakeSize;
+        } else if (posY >= height) {
             posY = 0;
         } else if (posY < 0) {
-            posY = 720 - snakeSize;
+            posY = height - snakeSize;
 
         }
         rectangle.setX(posX);
