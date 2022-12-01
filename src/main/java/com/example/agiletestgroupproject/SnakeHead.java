@@ -18,7 +18,7 @@ public class SnakeHead {
 
     private final int speed = 40;
 
-    private int direction;
+    private int direction; // 0 = left, 1 = right, 2 = up, 3 = down
 
     public SnakeHead(double posX, double posY) {
         this.posX = posX;
@@ -29,10 +29,12 @@ public class SnakeHead {
     }
 
     public void growMe(){
+        // If snake is empty just add a new snakeBody with the heads position
         if (snake.isEmpty())
         {
             snake.add(new SnakeBody(posX, posY));
         }
+        // Else add a new SnakeBody with the last bodies position
         else
         {
             int lastIndex = snake.size() - 1;
@@ -58,6 +60,7 @@ public class SnakeHead {
     }
 
     public void setSnakeMovement(int direction){
+        // 0 = left, 1 = right, 2 = up, 3 = down
         if(direction == 0 && this.direction != 1)
         {
             this.direction = 0;
@@ -81,6 +84,7 @@ public class SnakeHead {
     private void moveSnakeInDirection(){
         moveSnakeBody();
 
+        // 0 = left, 1 = right, 2 = up, 3 = down
         if (direction == 0)
         {
             posX -= speed;

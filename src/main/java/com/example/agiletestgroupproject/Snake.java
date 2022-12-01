@@ -49,15 +49,10 @@ public class Snake extends Application {
         stage.setScene(scene);
         stage.show();
 
+
         // Timeline is the runs every 0.2 seconds
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), ev -> {
             snakeHead.setSnakeMovement(direction);
-            int test = 0;
-            if (test == 5)
-            {
-                test = 0;
-                snakeHead.addSnake();
-            }
         }));
         // Runs the timeline forever
         timeline.setCycleCount(Animation.INDEFINITE);
