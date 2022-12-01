@@ -1,5 +1,6 @@
 package com.example.agiletestgroupproject;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
@@ -14,7 +15,10 @@ public class SnakeBody {
 
 
     public SnakeBody() {
-
+        this.posX = posX;
+        this.posY = posY;
+        rectangle = new Rectangle(this.posX,this.posY,snakeSize,snakeSize);
+        rectangle.setFill(Color.GREEN);
     }
 
     public double getPosX() {
