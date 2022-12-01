@@ -114,4 +114,23 @@ public class SnakeHead {
         rectangle.setX(posX);
         rectangle.setY(posY);
     }
+
+    private void moveSnakeBody()
+    {
+        if (snake.isEmpty())
+        {
+
+        }
+        else
+        {
+            // Loops through all snakebody except index 0 and sets position to the previous one
+            for (int index = snake.size() - 1; index > 0; index--)
+            {
+                snake.get(index).setPosX(snake.get(index-1).getPosX());
+                snake.get(index).setPosY(snake.get(index-1).getPosY());
+            }
+            snake.get(0).setPosX(posX);
+            snake.get(0).setPosY(posY);
+        }
+    }
 }
