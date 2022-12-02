@@ -25,8 +25,8 @@ public class Snake extends Application {
     //Lost variable
     private Boolean lost = false;
     private Boolean grow = false;
+    private Text scoreText = new Text();
 
-    static List<Rectangle> snake = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -41,22 +41,28 @@ public class Snake extends Application {
          Apple apple =new Apple();
          apple.generateApple(HEIGHT,WIDE, snakeHead);
 
-        // add start snake parts
-        snake.add(snakeHead.getRectangle());
 
         // add all the objects to draw to this group
         Group groupOfNodes = new Group();
         groupOfNodes.getChildren().add(snakeHead.getRectangle());
         groupOfNodes.getChildren().add(apple.getRectangle());
 
-        //Text
-        Text text = new Text();
-        text.setText("You lost!");
-        text.setX(WIDE/2);
-        text.setY(HEIGHT/2);
-        text.setFill(Color.WHITE);
-        text.setStyle("-fx-font: 50 arial;");
-        Group lostGroup = new Group(text);
+        //Score text
+        scoreText.setText(String.valueOf(snakeHead.getSnake().size()));
+        scoreText.setX(50);
+        scoreText.setY(50);
+        scoreText.setFill(Color.WHITE);
+        scoreText.setStyle("-fx-font: 25 arial;");
+        groupOfNodes.getChildren().add(scoreText);
+
+        //Lost text
+        Text lostText = new Text();
+        lostText.setText("You lost!");
+        lostText.setX(WIDE/2);
+        lostText.setY(HEIGHT/2);
+        lostText.setFill(Color.RED);
+        lostText.setStyle("-fx-font: 50 arial;");
+        Group lostGroup = new Group(lostText);
 
         //Lost scene
         Scene lostScene = new Scene(lostGroup, WIDE, HEIGHT);
@@ -80,7 +86,6 @@ public class Snake extends Application {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), ev -> {
             if(lost)
             {
-                System.out.println("You Lost");
                 stage.setScene(lostScene);
             }
             else
@@ -90,6 +95,7 @@ public class Snake extends Application {
                 // If the snake should grow
                 if (grow){
                     groupOfNodes.getChildren().add(snakeHead.getLatestSnakeBody());
+                    scoreText.setText(String.valueOf(snakeHead.getSnake().size()));
                     grow = false;
                 }
 

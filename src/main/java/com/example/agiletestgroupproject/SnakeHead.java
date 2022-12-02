@@ -153,4 +153,8 @@ public class SnakeHead {
         Rectangle rectangle = snake.get(snake.size() - 1).getRectangle();
         return rectangle;
     }
+
+    public List<SnakeBody> getSnake() {
+        return snake;
+    }
 }
