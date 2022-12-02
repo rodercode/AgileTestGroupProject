@@ -7,26 +7,22 @@ package com.example.agiletestgroupproject;
     import java.util.List;
     import java.util.Random;
 
-    public class Apele {
-        private List<Apele> apeles;
+    public class Apple {
 
         Random r =new Random();
         private double posX;
-        private Rectangle rectangle;
         private double posY;
+        private Rectangle rectangle;
+
         private final double apelSize = 40;
-        public Apele(double posX, double posY) {
+        public Apple(double posX, double posY) {
             this.posX = posX;
             this.posY = posY;
             rectangle = new Rectangle(this.posX,this.posY,apelSize,apelSize);
             rectangle.setFill(Color.RED);
            r.nextDouble(2,3);
-           apeles=new ArrayList<>();
         }
 
-        public List<Apele> getApeles() {
-            return apeles;
-        }
 
         public Random getR() {
             return r;
