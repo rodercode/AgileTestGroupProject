@@ -21,11 +21,8 @@ public class Snake extends Application {
 
     private static int direction = 0; // 0 = left, 1 = right, 2 = up, 3 = down
 
-<<<<<<< HEAD
     static List<Rectangle> snake = new ArrayList<>();
     static List<Rectangle> aples = new ArrayList<>();
-=======
->>>>>>> 48e1c34877356bcc4356488de563e28709d5a6e0
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -35,15 +32,11 @@ public class Snake extends Application {
 
         //Objects
         SnakeHead snakeHead = new SnakeHead(HEIGHT/2,WIDE/2);
-<<<<<<< HEAD
-        SnakeHead snakeHead1 = new SnakeHead(HEIGHT/2,WIDE/2);
          Apele apel =new Apele(HEIGHT/2,WIDE/2);
+
         // add start snake parts
         snake.add(snakeHead.getRectangle());
         aples.add(apel.getRectangle());
-=======
-
->>>>>>> 48e1c34877356bcc4356488de563e28709d5a6e0
 
         // add all the objects to draw to this group
         Group groupOfNodes = new Group();
