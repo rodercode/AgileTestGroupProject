@@ -28,6 +28,17 @@ public class SnakeHead {
         snake = new ArrayList<>();
     }
 
+    public Boolean hitItself(){
+        for (SnakeBody snakeBody: snake)
+        {
+            if(this.posX == snakeBody.getPosX() && this.posY == snakeBody.getPosY())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void growMe(){
         // If snake is empty just add a new snakeBody with the heads position
         if (snake.isEmpty())
