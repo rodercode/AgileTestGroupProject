@@ -50,7 +50,7 @@ public class Snake extends Application {
 
         //Text
         Text text = new Text();
-        text.setText("You lost");
+        text.setText("You lost!");
         text.setX(WIDE/2);
         text.setY(HEIGHT/2);
         Group lostGroup = new Group(text);
