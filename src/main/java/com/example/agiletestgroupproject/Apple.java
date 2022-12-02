@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 import java.util.Random;
 
 public class Apple {
-    Random random = new Random();
+    Random random;
     private double posX;
     private double posY;
     private Rectangle rectangle;
@@ -15,6 +15,7 @@ public class Apple {
     public Apple() {
         rectangle = new Rectangle(0, 0, appleSize, appleSize);
         rectangle.setFill(Color.RED);
+        random = new Random();
     }
 
     // Generate a new position for apple until it doesn't have the same position as the snake
