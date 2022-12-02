@@ -38,7 +38,7 @@ public class Snake extends Application {
         //Objects
          SnakeHead snakeHead = new SnakeHead(HEIGHT/2,WIDE/2);
          Apple apple =new Apple();
-         apple.generateApple(HEIGHT,WIDE);
+         apple.generateApple(HEIGHT,WIDE, snakeHead);
 
         // add start snake parts
         snake.add(snakeHead.getRectangle());
@@ -77,19 +77,22 @@ public class Snake extends Application {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), ev -> {
             if(lost)
             {
+                System.out.println("You Lost");
                 stage.setScene(lostScene);
             }
             else
             {
                 snakeHead.setSnakeMovement(direction, HEIGHT, WIDE);
-                if (snakeHead.getPosX() == apple.getPosX() && snakeHead.getPosY() == apple.getPosY())
-                {
-                    apple.generateApple(HEIGHT, WIDE);
-                    snakeHead.growMe();
-                }
+
                 if (snakeHead.hitItself())
                 {
                     lost = true;
+                }
+
+                if (snakeHead.getPosX() == apple.getPosX() && snakeHead.getPosY() == apple.getPosY())
+                {
+                    apple.generateApple(HEIGHT, WIDE, snakeHead);
+                    snakeHead.growMe();
                 }
             }
         }));

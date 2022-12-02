@@ -37,6 +37,20 @@ public class SnakeHead {
         return false;
     }
 
+    public boolean isOnPosition(int posX, int posY){
+        if (posX == this.posX && posY == this.posY){
+            return true;
+        }
+        for (SnakeBody snakeBody: snake)
+        {
+            if (posX == snakeBody.getPosX() && posY == snakeBody.getPosY())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void growMe() {
         // If snake is empty just add a new snakeBody with the heads position
         if (snake.isEmpty()) {
