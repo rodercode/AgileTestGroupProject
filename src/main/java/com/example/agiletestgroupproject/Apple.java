@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Apple {
-    Random r = new Random();
+    Random random = new Random();
     private double posX;
     private double posY;
     private Rectangle rectangle;
@@ -20,18 +20,8 @@ public class Apple {
     }
 
     public void generateApple(int Height, int Wide) {
-        rectangle.setY(40 * r.nextInt(Height / 40));
-        rectangle.setX(40 * r.nextInt(Wide / 40));
-    }
-
-//    public boolean eatApple(Apple apple){
-//        if ()
-//            return true;
-//
-//    }
-
-    public Random getR() {
-        return r;
+        rectangle.setY(40 * random.nextInt(Height / 40));
+        rectangle.setX(40 * random.nextInt(Wide / 40));
     }
 
     public double getPosX() {
@@ -46,7 +36,4 @@ public class Apple {
         return posY;
     }
 
-    public double getApelSize() {
-        return apelSize;
-    }
 }

@@ -82,6 +82,11 @@ public class Snake extends Application {
             else
             {
                 snakeHead.setSnakeMovement(direction, HEIGHT, WIDE);
+                if (snakeHead.getPosX() == apple.getPosX() && snakeHead.getPosY() == apple.getPosY())
+                {
+                    apple.generateApple(HEIGHT, WIDE);
+                    snakeHead.growMe();
+                }
                 if (snakeHead.hitItself())
                 {
                     lost = true;
@@ -112,4 +117,5 @@ public class Snake extends Application {
 
         return scene;
     }
+
 }
