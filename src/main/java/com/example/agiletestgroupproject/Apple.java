@@ -1,46 +1,49 @@
 package com.example.agiletestgroupproject;
 
-    import javafx.scene.paint.Color;
-    import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
-    import java.util.ArrayList;
-    import java.util.List;
-    import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-    public class Apple {
+public class Apple {
 
-        Random r =new Random();
-        private double posX;
-        private double posY;
-        private Rectangle rectangle;
+    Random r = new Random();
+    private double posX;
+    private double posY;
+    private Rectangle rectangle;
 
-        private final double apelSize = 40;
-        public Apple(double posX, double posY) {
-            this.posX = posX;
-            this.posY = posY;
-            rectangle = new Rectangle(this.posX,this.posY,apelSize,apelSize);
-            rectangle.setFill(Color.RED);
-           r.nextDouble(2,3);
-        }
+    private final double apelSize = 40;
 
-
-        public Random getR() {
-            return r;
-        }
-
-        public double getPosX() {
-            return posX;
-        }
-
-        public Rectangle getRectangle() {
-            return rectangle;
-        }
-
-        public double getPosY() {
-            return posY;
-        }
-
-        public double getApelSize() {
-            return apelSize;
-        }
+    public Apple() {
+        rectangle = new Rectangle(0, 0, apelSize, apelSize);
+        rectangle.setFill(Color.RED);
     }
+
+    public void generateApple(int Height, int Wide) {
+        rectangle.setY(40 * r.nextInt(Height / 40));
+        rectangle.setX(40 * r.nextInt(Wide / 40));
+    }
+
+
+    public Random getR() {
+        return r;
+    }
+
+    public double getPosX() {
+        return posX;
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public double getPosY() {
+        return posY;
+    }
+
+    public double getApelSize() {
+        return apelSize;
+    }
+}

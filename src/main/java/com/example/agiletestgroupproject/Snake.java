@@ -32,7 +32,8 @@ public class Snake extends Application {
 
         //Objects
         SnakeHead snakeHead = new SnakeHead(HEIGHT/2,WIDE/2);
-         Apple apel =new Apple(HEIGHT/2,WIDE/2);
+         Apple apel =new Apple();
+         apel.generateApple(HEIGHT,WIDE);
 
         // add start snake parts
         snake.add(snakeHead.getRectangle());
@@ -42,6 +43,7 @@ public class Snake extends Application {
         Group groupOfNodes = new Group();
         groupOfNodes.getChildren().add(snakeHead.getRectangle());
         groupOfNodes.getChildren().add(apel.getRectangle());
+
 
         // Scene at 1280x720 pixels
         Scene scene = new Scene(groupOfNodes, WIDE, HEIGHT);
