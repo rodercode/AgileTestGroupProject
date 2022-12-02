@@ -24,6 +24,7 @@ public class Snake extends Application {
 
     //Lost variable
     private Boolean lost = false;
+    private Boolean grow = false;
 
     static List<Rectangle> snake = new ArrayList<>();
     @Override
@@ -53,6 +54,8 @@ public class Snake extends Application {
         text.setText("You lost!");
         text.setX(WIDE/2);
         text.setY(HEIGHT/2);
+        text.setFill(Color.WHITE);
+        text.setStyle("-fx-font: 50 arial;");
         Group lostGroup = new Group(text);
 
         //Lost scene
@@ -82,17 +85,25 @@ public class Snake extends Application {
             }
             else
             {
-                snakeHead.setSnakeMovement(direction, HEIGHT, WIDE);
+                // Move the snake
+                snakeHead.setSnakeMovement(direction, HEIGHT, WIDE , grow);
+                // If the snake should grow
+                if (grow){
+                    groupOfNodes.getChildren().add(snakeHead.getLatestSnakeBody());
+                    grow = false;
+                }
 
+                // If you hit yourself
                 if (snakeHead.hitItself())
                 {
                     lost = true;
                 }
 
+                // Checks if you hit the apple
                 if (snakeHead.getPosX() == apple.getPosX() && snakeHead.getPosY() == apple.getPosY())
                 {
                     apple.generateApple(HEIGHT, WIDE, snakeHead);
-                    snakeHead.growMe();
+                    grow = true;
                 }
             }
         }));

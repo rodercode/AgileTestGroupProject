@@ -51,7 +51,7 @@ public class SnakeHead {
         return false;
     }
 
-    public void growMe() {
+    private void growMe() {
         // If snake is empty just add a new snakeBody with the heads position
         if (snake.isEmpty()) {
             snake.add(new SnakeBody(posX, posY));
@@ -80,7 +80,7 @@ public class SnakeHead {
         return rectangle;
     }
 
-    public void setSnakeMovement(int direction, int height, int wide) {
+    public void setSnakeMovement(int direction, int height, int wide, Boolean grow) {
         // 0 = left, 1 = right, 2 = up, 3 = down
         if (direction == 0 && this.direction != 1) {
             this.direction = 0;
@@ -91,6 +91,11 @@ public class SnakeHead {
         } else if (direction == 3 && this.direction != 2) {
 
             this.direction = 3;
+        }
+
+        if (grow)
+        {
+            growMe();
         }
 
         moveSnakeInDirection(height, wide);
@@ -111,6 +116,7 @@ public class SnakeHead {
 
         }
 
+        // Teleportation if you go through the wall
         if (posX >= wide) {
             posX = 0;
         } else if (posX < 0) {
@@ -121,6 +127,8 @@ public class SnakeHead {
             posY = height - snakeSize;
 
         }
+
+        //Gives snakeHead its new position
         rectangle.setX(posX);
         rectangle.setY(posY);
     }
@@ -134,6 +142,7 @@ public class SnakeHead {
                 snake.get(index).setPosX(snake.get(index - 1).getPosX());
                 snake.get(index).setPosY(snake.get(index - 1).getPosY());
             }
+            // Gives the snakeBody with index 0 their position
             snake.get(0).setPosX(posX);
             snake.get(0).setPosY(posY);
         }
