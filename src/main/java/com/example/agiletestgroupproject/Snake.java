@@ -79,8 +79,9 @@ public class Snake extends Application {
             {
                 stage.setScene(lostScene);
             }
-            else {
-            snakeHead.setSnakeMovement(direction, HEIGHT, WIDE);
+            else
+            {
+                snakeHead.setSnakeMovement(direction, HEIGHT, WIDE);
                 if (snakeHead.hitItself())
                 {
                     lost = true;
