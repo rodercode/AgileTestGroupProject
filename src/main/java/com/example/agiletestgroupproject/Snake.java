@@ -80,7 +80,6 @@ public class Snake extends Application {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.2), ev -> {
             if(lost)
             {
-                System.out.println("You Lost");
                 stage.setScene(lostScene);
             }
             else
