@@ -26,7 +26,6 @@ public class Apple {
         rectangle.setX(40 * r.nextInt(Wide / 40));
     }
 
-
     public Random getR() {
         return r;
     }
