@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SnakeHead {
-    private double  posX;
+    private double posX;
     private double posY;
     private final double snakeSize = 40;
     private Rectangle rectangle;
@@ -23,31 +23,27 @@ public class SnakeHead {
     public SnakeHead(double posX, double posY) {
         this.posX = posX;
         this.posY = posY;
-        rectangle = new Rectangle(this.posX,this.posY,snakeSize,snakeSize);
+        rectangle = new Rectangle(this.posX, this.posY, snakeSize, snakeSize);
         rectangle.setFill(Color.GREEN);
         snake = new ArrayList<>();
     }
 
-    public Boolean hitItself(){
-        for (SnakeBody snakeBody: snake)
-        {
-            if(this.posX == snakeBody.getPosX() && this.posY == snakeBody.getPosY())
-            {
+    public Boolean hitItself() {
+        for (SnakeBody snakeBody : snake) {
+            if (this.posX == snakeBody.getPosX() && this.posY == snakeBody.getPosY()) {
                 return true;
             }
         }
         return false;
     }
 
-    public void growMe(){
+    public void growMe() {
         // If snake is empty just add a new snakeBody with the heads position
-        if (snake.isEmpty())
-        {
+        if (snake.isEmpty()) {
             snake.add(new SnakeBody(posX, posY));
         }
         // Else add a new SnakeBody with the last bodies position
-        else
-        {
+        else {
             int lastIndex = snake.size() - 1;
             snake.add(new SnakeBody(snake.get(lastIndex).getPosX(), snake.get(lastIndex).getPosY()));
         }
@@ -70,21 +66,15 @@ public class SnakeHead {
         return rectangle;
     }
 
-    public void setSnakeMovement(int direction, int height, int wide){
+    public void setSnakeMovement(int direction, int height, int wide) {
         // 0 = left, 1 = right, 2 = up, 3 = down
-        if(direction == 0 && this.direction != 1)
-        {
+        if (direction == 0 && this.direction != 1) {
             this.direction = 0;
-        }
-        else if(direction == 1 && this.direction != 0)
-        {
+        } else if (direction == 1 && this.direction != 0) {
             this.direction = 1;
-        }
-        else if(direction == 2 && this.direction != 3)
-        {
+        } else if (direction == 2 && this.direction != 3) {
             this.direction = 2;
-        }
-        else if(direction == 3 && this.direction != 2){
+        } else if (direction == 3 && this.direction != 2) {
 
             this.direction = 3;
         }
@@ -92,31 +82,24 @@ public class SnakeHead {
         moveSnakeInDirection(height, wide);
     }
 
-    private void moveSnakeInDirection(int height, int wide){
+    private void moveSnakeInDirection(int height, int wide) {
         moveSnakeBody();
 
         // 0 = left, 1 = right, 2 = up, 3 = down
-        if (direction == 0)
-        {
+        if (direction == 0) {
             posX -= speed;
-        }
-        else if (direction == 1) {
+        } else if (direction == 1) {
             posX += speed;
-        }
-        else if (direction == 2) {
+        } else if (direction == 2) {
             posY -= speed;
-        }
-        else if (direction == 3) {
+        } else if (direction == 3) {
             posY += speed;
 
         }
 
-        if (posX >= wide)
-        {
+        if (posX >= wide) {
             posX = 0;
-        }
-        else if (posX < 0 )
-        {
+        } else if (posX < 0) {
             posX = wide - snakeSize;
         } else if (posY >= height) {
             posY = 0;
@@ -128,19 +111,14 @@ public class SnakeHead {
         rectangle.setY(posY);
     }
 
-    private void moveSnakeBody()
-    {
-        if (snake.isEmpty())
-        {
+    private void moveSnakeBody() {
+        if (snake.isEmpty()) {
 
-        }
-        else
-        {
+        } else {
             // Loops through all snakeBody except index 0 and sets position to the previous one
-            for (int index = snake.size() - 1; index > 0; index--)
-            {
-                snake.get(index).setPosX(snake.get(index-1).getPosX());
-                snake.get(index).setPosY(snake.get(index-1).getPosY());
+            for (int index = snake.size() - 1; index > 0; index--) {
+                snake.get(index).setPosX(snake.get(index - 1).getPosX());
+                snake.get(index).setPosY(snake.get(index - 1).getPosY());
             }
             snake.get(0).setPosX(posX);
             snake.get(0).setPosY(posY);
